@@ -7,11 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Box.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        
+        Box* myBox = [Box new];
+        [myBox setDimensionsWithHeight:10 andWidth:12  andLength:100];
+        NSLog(@"The volume of the box is %f", [myBox calculateVolume]);
+        
+        Box* otherBox = [Box new];
+        [otherBox setDimensionsWithHeight:5 andWidth:6 andLength:100];
+        int howMany = [myBox howManyFitInside:otherBox];
+        NSLog(@"%i boxes will fit inside eachother.", howMany);
     }
     return 0;
 }
